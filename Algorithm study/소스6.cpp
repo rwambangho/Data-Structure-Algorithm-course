@@ -6,10 +6,12 @@ typedef struct GraphNode {
 	int vertex;
 	struct GraphNode* link;
 }GraphNode;
+
 typedef struct GraphType {
 	int n;
 	GraphNode* adj_list[MAX_VERTICES];
 }GraphType;
+
 void init(GraphType* g) {
 	g->n = 0;
 	for (int i = 0; i < MAX_VERTICES; i++) {
@@ -23,6 +25,7 @@ void insert_vertex(GraphType* g, int v) { //정점을 삽입
 	}
 	g->n++;
 }
+
 void insert_edge(GraphType* g, int u, int v) {
 	//에러처리생략
 	GraphNode* node;
@@ -31,6 +34,7 @@ void insert_edge(GraphType* g, int u, int v) {
 	node->link = g->adj_list[u];
 	g->adj_list[u] = node;
 }
+
 void print_adj_list(GraphType* g) {
 	for (int i = 0; i < g->n; i++) {
 		GraphNode* p = g->adj_list[i];
@@ -42,7 +46,8 @@ void print_adj_list(GraphType* g) {
 		printf("\n");
 	}
 }
-void calc_degree(GraphType* g, int* in_degree, int* out_degree) {
+
+void calc_degree(GraphType* g, int* in_degree, int* out_degree) { //진입차수 진출차수 구하는 함수
 	// Initialize degrees
 	for (int i = 0; i < g->n; i++) {
 		in_degree[i] = 0;
