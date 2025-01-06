@@ -138,5 +138,8 @@
     <ClCompile Include="소스9.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="adj_mat.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

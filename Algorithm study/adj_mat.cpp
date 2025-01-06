@@ -6,7 +6,7 @@
 int visited[MAX_VERTICES]; // 방문한 정점을 표시하기 위한 배열
 
 // 노드 구조 하나 만들었다.
-typedef struct GraphNode{
+typedef struct GraphNode {
 	int vertex;
 	struct GraphNode* link;
 } GraphNode;
@@ -15,19 +15,16 @@ typedef struct GraphNode{
 typedef struct GraphType
 {
 	int n;
-	GraphNode* adj_list[MAX_VERTICES]; // 그래프 노드의 주소를 가져오므로 포인터 배열만듬
+	GraphNode* adj_mat[MAX_VERTICES][MAX_VERTICES]; 
 } GraphType;
 
-void dfs_list(GraphType* g, int v)
-{
-	GraphNode* w;
-	visited[v] = TRUE; // 정점 v 방문 표시
+void dfs_mat(GraphType* g, int v) {
+	int w;
+	visited[v] = TRUE; //정점 v의 방문표시
 	printf("정점 %d -> ", v);
-	for (w = g->adj_list[v]; w; w = w->link) // 인접 정점 탐색
-	{
-		if (!visited[w->vertex]) // 방문하지 않은 정점이면
-		{
-			dfs_list(g, w->vertex); // 다시 DFS
+	for (w = 0; w < g->n; w++) {
+		if (g->adj_mat[v][w] && !visited[w]) {
+
 		}
 	}
 }
@@ -39,7 +36,7 @@ void init(GraphType* g)
 	g->n = 0;
 	for (v = 0; v < MAX_VERTICES; v++)
 	{
-		g->adj_list[v] = NULL;
+		g->adj_mat[v] = NULL;
 	}
 }
 
