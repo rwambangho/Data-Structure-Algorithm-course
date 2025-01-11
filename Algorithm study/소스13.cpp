@@ -7,9 +7,13 @@
 int list[MAX_SIZE] = { 5,3,8,4,9,1,6,2,7 };
 int n;
 
-void print_sort(int list[], int n) {
+void print_sort(int list[], int n, int q) {
 	for (int i = 0; i < n; i++) {
-		printf("%2d", list[i]);
+		if (i == q) {
+			printf("[%2d]", list[i]);
+		}
+		else
+			printf("%2d", list[i]);
 	}
 	printf("%\n");
 }
@@ -31,22 +35,22 @@ int partition(int list[], int left, int right) {
 	} while (low < high);
 
 	SWAP(list[left], list[high], temp);
-	//print_sort(list, n);
+	print_sort(list, n, high);
 	return high;
 }
 
 void quick_sort(int list[], int left, int right) {
 	if (left < right) {
 		int q = partition(list, left, right);
-		quick_sort(list, 0, q - 1);
+		quick_sort(list, left, q - 1);
 		quick_sort(list, q + 1, right);
 	}
 
 }
 int main() {
 	n = MAX_SIZE;
-	print_sort(list, n);
+	//print_sort(list, n);
 	quick_sort(list, 0, n - 1);
-	print_sort(list, n);
+	//print_sort(list, n);
 
 }
