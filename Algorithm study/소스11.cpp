@@ -51,12 +51,13 @@ void floyd(GraphType* g) {
 }
 
 int main() {
-	GraphType g = { 5,
-		{{ 0,4,3,INF,10},
-		{4,0,6,1,INF},
-		{3,6,0,4,INF},
-		{INF,1,4,0,2},
-		{10,INF,INF,2,0}}
+	GraphType g = { 6,
+	 {{ 0, 50, 45, 10, INF, INF },
+	 { INF, 0, 10, 15, INF, INF },
+	 { INF, INF, 0, INF, 30, INF },
+	 { 20, INF, INF, 0, 15, INF },
+	 { INF, 20, 35, INF, 0, INF },
+	 { INF, INF, INF, INF, 3, 0 }}
 	};
 	floyd(&g);
 	return 0;

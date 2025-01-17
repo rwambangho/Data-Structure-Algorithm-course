@@ -15,7 +15,7 @@ void print_sort(int list[], int n, int q) {
 		else
 			printf("%2d", list[i]);
 	}
-	printf("%\n");
+	printf("\n");
 }
 int partition(int list[], int left, int right) {
 	int pivot, temp;
